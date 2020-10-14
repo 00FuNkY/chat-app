@@ -4,7 +4,8 @@ import "./Contact.css";
 
 
 
-function Contact({name,avatar,Online}) {
+
+function Contact({name,avatar,online}) {
   return (
     <div className="Contact">
       <img
@@ -17,13 +18,38 @@ function Contact({name,avatar,Online}) {
           <h4>{name}</h4>
         </div>
         <div className="status">
-          <div className={Online ? "status-online" : "status-offline"}></div>
-          <p className="status-text">{Online ? "Online" : "Offline"}</p>
+          <div className={online ? "status-online" : "status-offline"}></div>
+          <p className="status-text">{online ? "Online" : "Offline"}</p>
         </div>
       </div>
     </div>
   );
 }
+
+
+
+
+
+/* function Contact({name,avatar,online}) {
+  return (
+    <div className="Contact">
+      <img
+        className="avatar"
+        src={avatar}
+        alt={name}
+      />
+      <div>
+        <div className="name">
+          <h4>{name}</h4>
+        </div>
+        <div className="status">
+          <div className={online ? "status-online" : "status-offline"}></div>
+          <p className="status-text">{online ? "Online" : "Offline"}</p>
+        </div>
+      </div>
+    </div>
+  );
+} */
 
 Contact.propTypes = {
   name : PropTypes.string.isRequired,
