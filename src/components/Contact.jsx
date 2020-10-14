@@ -1,20 +1,20 @@
 import React from "react";
-
+import PropTypes from 'prop-types';
 import "./Contact.css";
 
-const Online = true;
 
-function Contact() {
+
+function Contact({name,avatar,Online}) {
   return (
     <div className="Contact">
       <img
         className="avatar"
-        src="https://randomuser.me/api/portraits/women/65.jpg"
-        alt="avatarphoto"
+        src={avatar}
+        alt={name}
       />
       <div>
         <div className="name">
-          <h4>Willie Stone</h4>
+          <h4>{name}</h4>
         </div>
         <div className="status">
           <div className={Online ? "status-online" : "status-offline"}></div>
@@ -23,6 +23,12 @@ function Contact() {
       </div>
     </div>
   );
+}
+
+Contact.propTypes = {
+  name : PropTypes.string.isRequired,
+  avatar : PropTypes.string.isRequired,
+  Online : PropTypes.bool,
 }
 
 export default Contact;
